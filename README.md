@@ -192,7 +192,7 @@ RPC URL — это адрес «узла», через который прило
 
 **В PowerShell:**
 ```powershell
-cd "c:\Users\Sergey\Desktop\проект Индира_1\проект Индира"
+cd "c:\Users\<ВАШ ПОЛЬЗОВАТЕЛЬ>\<ПУТЬ ДО ПАПКИ С ПРОЕКТОМ>
 copy .env.example .env
 ```
 
@@ -287,7 +287,7 @@ ADMIN_TELEGRAM_IDS=123456789
 
 Откройте PowerShell, перейдите в папку проекта:
 ```powershell
-cd "c:\Users\Sergey\Desktop\проект Индира_1\проект Индира"
+cd "c:\Users\<ВАШ ПОЛЬЗОВАТЕЛЬ>\<ПУТЬ ДО ПРОЕКТА>
 ```
 
 Запустите сборку и старт:
@@ -407,7 +407,7 @@ mkcert -install
 
 В папке проекта создайте подпапку для сертификатов:
 ```powershell
-cd "c:\Users\Sergey\Desktop\проект Индира_1\проект Индира"
+cd "c:\Users\<ВАШ ПОЛЬЗОВАТЕЛЬ>\<ПУТЬ ДО ПРОЕКТА>
 mkdir certs
 cd certs
 mkcert localhost 127.0.0.1 ::1
@@ -513,7 +513,7 @@ volumes:
 ### 7.6 Запустить с HTTPS
 
 ```powershell
-cd "c:\Users\Sergey\Desktop\проект Индира_1\проект Индира"
+cd "c:\Users\<ВАШ ПОЛЬЗОВАТЕЛЬ>\<ПУТЬ ДО ПРОЕКТА>
 docker compose up -d --build
 ```
 
@@ -637,8 +637,8 @@ cd advisor
 В PowerShell **на вашем компьютере** (не на сервере):
 ```powershell
 # Создать архив проекта (исключая .venv и базу данных)
-cd "c:\Users\Sergey\Desktop\проект Индира_1"
-Compress-Archive -Path ".\проект Индира\*" -DestinationPath "advisor.zip" -Force
+cd "c:\Users\<ВАШ ПОЛЬЗОВАТЕЛЬ>\<ПУТЬ ДО ПРОЕКТА>
+Compress-Archive -Path ".\CT_project\*" -DestinationPath "advisor.zip" -Force
 
 # Загрузить на сервер
 scp advisor.zip root@5.10.20.30:/opt/
@@ -853,7 +853,7 @@ docker system prune -f
 ## 9. Структура проекта
 
 ```
-проект Индира/
+CT_project/
 │
 ├── backend/                     ← Python-сервер
 │   ├── app/
@@ -1074,7 +1074,7 @@ GitHub — это платформа для хранения кода. Туда 
 **Шаг 2 — Инициализировать Git локально**
 
 ```powershell
-cd "c:\Users\Sergey\Desktop\проект Индира_1\проект Индира"
+cd "c:\Users\<ВАШ ПОЛЬЗОВАТЕЛЬ>\<ПУТЬ ДО ПРОЕКТА>
 git init
 git add .
 ```
