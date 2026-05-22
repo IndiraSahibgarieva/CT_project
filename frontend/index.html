@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telegram Web3 Advisor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">INTEGRATION WITH SOCIALS</p>
+      <h1>Telegram Web3 Advisor</h1>
+      <p class="subtitle">Темный digital-интерфейс для баланса, NFT-бейджей и событий экосистемы.</p>
+    </header>
+
+    <section class="card auth-card">
+      <h2>Авторизация и привязка кошелька</h2>
+      <label>
+        Telegram initData (fallback для браузера вне Telegram)
+        <textarea id="initDataInput" rows="2" placeholder="query_id=...&user=...&auth_date=...&hash=..."></textarea>
+      </label>
+      <button id="telegramLoginBtn" type="button">Войти через Telegram</button>
+
+      <form id="authForm">
+        <label>
+          Telegram ID
+          <input type="number" id="telegramId" placeholder="например, 123456789" required />
+        </label>
+
+        <!-- Кнопка MetaMask (скрыта если MetaMask недоступен) -->
+        <button type="button" id="connectMetamaskBtn" style="display:none; background: linear-gradient(90deg,#f6851b,#e2761b);">
+          🦊 Подключить MetaMask
+        </button>
+
+        <label>
+          Wallet address
+          <input type="text" id="walletAddress" placeholder="0x... (или нажмите «Подключить MetaMask»)" minlength="42" maxlength="42" />
+        </label>
+
+        <button type="button" id="getNonceBtn">Шаг 1 — Получить сообщение для подписи</button>
+
+        <pre id="nonceBox" class="helper" style="display:none;"></pre>
+
+        <!-- Кнопка автоподписи через MetaMask -->
+        <button type="button" id="signMetamaskBtn" style="display:none; background: linear-gradient(90deg,#f6851b,#e2761b);">
+          🦊 Подписать через MetaMask
+        </button>
+
+        <!-- Ручное поле подписи (fallback) -->
+        <label id="signatureLabel" style="display:none;">
+          Signature (подпись из MetaMask — если нет автоподписи)
+          <input type="text" id="signature" placeholder="Вставьте подпись (0x...)" />
+        </label>
+        <button type="submit" id="verifyBtn" style="display:none;">Шаг 2 — Подключить кошелёк (вручную)</button>
+      </form>
+
+      <p id="authStatus" class="status"></p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Баланс FA</h3>
+        <p class="value" id="balanceValue">--</p>
+      </article>
+      <article class="card">
+        <h3>Бейджи</h3>
+        <ul id="badgesList" class="tags"></ul>
+      </article>
+      <article class="card notifications">
+        <h3>Уведомления</h3>
+        <ul id="notificationsList"></ul>
+      </article>
+    </section>
+
+    <section class="card transfer-card" id="transferCard" style="display:none;">
+      <h2>Перевод FA токенов</h2>
+      <form id="transferForm">
+        <label>
+          Адрес получателя
+          <input type="text" id="transferTo" placeholder="0x... (42 символа)" minlength="42" maxlength="42" />
+        </label>
+        <label>
+          Количество FA
+          <input type="number" id="transferAmount" placeholder="например, 10" min="0.000001" step="any" />
+        </label>
+        <button type="submit" id="transferBtn">Отправить FA токены</button>
+      </form>
+      <p id="transferStatus" class="status"></p>
+    </section>
+
+    <section class="card admin-card">
+      <h2>Админ-рассылка</h2>
+      <form id="broadcastForm">
+        <label>
+          Сообщение
+          <textarea id="broadcastMessage" rows="3" placeholder="Анонс, голосование, начисление..." required></textarea>
+        </label>
+        <button type="submit">Отправить</button>
+      </form>
+      <p id="broadcastStatus" class="status"></p>
+    </section>
+  </main>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

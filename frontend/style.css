@@ -1,0 +1,171 @@
+:root {
+  --bg-main: #0f0d13;
+  --bg-card: rgba(32, 22, 36, 0.82);
+  --text-main: #f5e8ee;
+  --text-muted: #c9b7c1;
+  --accent: #7d1935;
+  --accent-strong: #b11f4f;
+  --border: rgba(177, 31, 79, 0.38);
+  --ok: #4ed29f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: radial-gradient(ellipse at top, #241220 0%, var(--bg-main) 55%, #08070b 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  background-image: repeating-radial-gradient(circle at 0 0, transparent 0 3px, rgba(255, 255, 255, 0.02) 3px 4px);
+  pointer-events: none;
+}
+
+.app-shell {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 20px 40px;
+}
+
+.hero {
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  letter-spacing: 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+h1 {
+  margin: 8px 0 6px;
+  font-size: 2rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  max-width: 720px;
+}
+
+.card {
+  background: linear-gradient(145deg, rgba(43, 27, 46, 0.85), var(--bg-card));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(5px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+input, textarea, button {
+  border-radius: 12px;
+  border: 1px solid #4a2d45;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+input, textarea {
+  background: rgba(20, 14, 24, 0.9);
+  color: var(--text-main);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  color: #fff;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(177, 31, 79, 0.35);
+}
+
+.value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 8px 0;
+  color: #ffd9e4;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.tags li {
+  background: rgba(177, 31, 79, 0.22);
+  border: 1px solid rgba(255, 120, 160, 0.3);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.notifications ul,
+.notifications li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.notifications li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e3d2da;
+}
+
+.notifications li:last-child {
+  border-bottom: none;
+}
+
+.helper {
+  background: rgba(14, 9, 18, 0.85);
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  color: #fbd9e7;
+  padding: 10px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.status {
+  min-height: 20px;
+  color: var(--ok);
+}
+
+.transfer-card {
+  margin: 16px 0;
+}
