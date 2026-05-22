@@ -1,0 +1,3 @@
+:80 {
+    reverse_proxy web3-advisor:8000
+}
